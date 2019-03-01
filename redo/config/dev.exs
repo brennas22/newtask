@@ -68,7 +68,7 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :redo, Redo.Repo,
-  username: "redo",
+  username: "tasktracker",
   password: "teacher105",
   database: "redo_dev",
   hostname: "localhost",

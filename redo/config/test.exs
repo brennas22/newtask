@@ -11,7 +11,7 @@ config :logger, level: :warn
 
 # Configure your database
 config :redo, Redo.Repo,
-  username: "redo",
+  username: "tasktracker",
   password: "teacher105",
   database: "redo_test",
   hostname: "localhost",
