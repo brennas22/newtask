@@ -1,0 +1,10 @@
+<div class="row empty"></div>
+
+<h1>Edit User</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :update, @user)) %>
+
+<div class="row empty"></div>
+
+
+<span><%= link "Back", to: Routes.user_path(@conn, :index), class: "sec" %></span>

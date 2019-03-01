@@ -1,0 +1,32 @@
+<div class="row empty"></div>
+<div class="container">
+  <div class="row">
+<h1>Task: <%= @task.name %></h1>
+
+</div>
+<div class="row">
+<ul>
+  <li>
+    <strong>Description:</strong>
+    <%= @task.desc %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @task.time %>
+  </li>
+
+  <li>
+    <strong>Complete:</strong>
+    <%= @task.complete %>
+  </li>
+
+</ul>
+</div>
+<div class="row empty"></div>
+
+<div class="row">
+<span><%= link "Edit task", to: Routes.task_path(@conn, :edit, @task), class: "prim" %></span>
+<span><%= link "Back to tasks", to: Routes.task_path(@conn, :index), class: "sec" %></span>
+</div>
+</div>

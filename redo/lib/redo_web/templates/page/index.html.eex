@@ -1,0 +1,22 @@
+<div class="row empty"></div>
+<div class="row">
+  <div class="col-12">
+    <h1>Welcome to Task Tracker
+      <%= if @current_user do %>
+         <%= @current_user.name %>!
+      <% end %>
+    </h1>
+    <p>This task tracker will help you manage all the things in your busy schedule,
+      plus you can keep track of how long you worked on each thing, and mark
+      once you finish them!
+
+
+  </div>
+</div>
+
+<div class="row">
+  <a><%= link "New User", to: Routes.user_path(@conn, :new), class: "prim" %></a>
+  <a><%= link "New Task", to: Routes.task_path(@conn, :new), class: "prim" %></a>
+  <a><%= link "View Users", to: Routes.user_path(@conn, :index), class: "sec" %></a>
+  <a><%= link "View Tasks", to: Routes.task_path(@conn, :index), class: "sec" %></a>
+</div>

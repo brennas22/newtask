@@ -1,0 +1,44 @@
+<div class="row empty"></div>
+<h1>Tasks</h1>
+<%= if Enum.empty?(Redo.Tasks.list_tasks) do %>
+  <p>You haven't added any tasks, click "new task" to add one!</p>
+  <% else  %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Desc</th>
+        <th>Time</th>
+        <th>Complete</th>
+        <th>User</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for task <- @tasks do %>
+
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.desc %></td>
+        <td><%= task.time %></td>
+        <td><%= task.complete %></td>
+        <td><%= Redo.Users.get_user(task.user_id).name %></td>
+        <td>
+          <%= link "Show", to: Routes.task_path(@conn, :show, task),
+             class: " prim" %>
+         <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
+             class: " sec" %>
+         <%= link "Delete", to: Routes.task_path(@conn, :delete, task),
+             method: :delete, data: [confirm: "Are you sure?"],
+             class: " del" %>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+<% end %>
+<div class="row empty"></div>
+
+
+<span><%= link "New Task", to: Routes.task_path(@conn, :new), class: "prim" %></span>
+<span><%= link "View users", to: Routes.user_path(@conn, :index), class: "sec" %></span>
