@@ -57,7 +57,7 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.desc %></td>
-    
+
         <td><%= task.complete %></td>
         <td><%= Redo.Users.get_user(task.user_id).name %></td>
         <td>

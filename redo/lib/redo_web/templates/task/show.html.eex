@@ -23,8 +23,8 @@
 
 <div class="row">
   <div class="col-2">
-    <button id="start_button">start time</button>
-    <button id="end_button">end time</button>
+    <button id="start_button" class="prim">start time</button>
+    <button id="end_button" class="sec"  data-task_id="<%= @task.id %>">end time</button>
     <p id="start_time">click to start timer</p>
 
 
@@ -35,7 +35,7 @@
 
 <div class="row">
   <div class="col-6">
-    <table class="table table-striped">
+    <table class="table table-striped" id="tb_table">
       <thead>
         <tr>
           <th>Start time</th>
@@ -45,13 +45,13 @@
       </thead>
       <tbody>
 
-    <%= for tb<- Redo.Time_blocks.list_time_blocks_for_task(@task.id) do %>
-
-        <tr>
-          <td><%= tb.start %></td>
-          <td><%= tb.end %></td>
-          <td>
-            <button>delete</button>
+    <%= for timeblock<- Redo.Time_blocks.list_time_blocks_for_task(@task.id) do %>
+        <tr class="editable-row">
+          <td><input id="start-field" type="text" class="form-control" disabled="true" value="<%= timeblock.start %>"</td>
+          <td class="end"><input id="end-field" type="text" class="form-control" disabled="true" value="<%= timeblock.start %>"</td>
+          <td class="buttons">
+            <button class="save-button" data-timeblock="<%= timeblock.id %>">save</button>
+            <button class="edit-button">edit</button>
           </td>
 
 
