@@ -8,7 +8,7 @@
       <tr>
         <th>Name</th>
         <th>Desc</th>
-        <th>Time</th>
+
         <th>Complete</th>
         <th>User</th>
         <th></th>
@@ -21,7 +21,7 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.desc %></td>
-        <td><%= task.time %></td>
+
         <td><%= task.complete %></td>
         <td><%= Redo.Users.get_user(task.user_id).name %></td>
         <td>
@@ -43,7 +43,7 @@
       <tr>
         <th>Name</th>
         <th>Desc</th>
-        <th>Time</th>
+
         <th>Complete</th>
         <th>User</th>
         <th></th>
@@ -57,7 +57,7 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.desc %></td>
-        <td><%= task.time %></td>
+    
         <td><%= task.complete %></td>
         <td><%= Redo.Users.get_user(task.user_id).name %></td>
         <td>

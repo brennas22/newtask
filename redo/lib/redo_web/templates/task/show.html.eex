@@ -11,10 +11,6 @@
     <%= @task.desc %>
   </li>
 
-  <li>
-    <strong>Time:</strong>
-    <%= @task.time %>
-  </li>
 
   <li>
     <strong>Complete:</strong>
