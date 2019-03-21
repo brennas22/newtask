@@ -7,8 +7,8 @@ defmodule Redo.Tasks.Task do
     field :complete, :boolean, default: false
     field :desc, :string
     field :name, :string
-    field :time, :decimal
     belongs_to :user, Redo.Users.User
+    has_many :timeblocks, Redo.Time_blocks.Time_block
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Redo.Tasks.Task do
   @doc false
   def changeset(task, attrs) do
     task
-    |> cast(attrs, [:name, :desc, :time, :complete, :user_id])
+    |> cast(attrs, [:name, :desc, :complete, :user_id])
     |> validate_required([:name, :desc])
   end
 end

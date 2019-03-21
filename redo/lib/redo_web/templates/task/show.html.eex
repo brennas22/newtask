@@ -26,6 +26,40 @@
 <div class="row empty"></div>
 
 <div class="row">
+  <div class="col-2">
+    <button id="start_button">start time</button>
+    <button>end time</button>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Start time</th>
+          <th>End time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <%= for tb<- Redo.Time_blocks.list_timeblocks_for_task(@task.id) do %>
+
+        <tr>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+
+
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<div class="row empty"></div>
+
+
+<div class="row">
 <span><%= link "Edit task", to: Routes.task_path(@conn, :edit, @task), class: "prim" %></span>
 <span><%= link "Back to tasks", to: Routes.task_path(@conn, :index), class: "sec" %></span>
 </div>

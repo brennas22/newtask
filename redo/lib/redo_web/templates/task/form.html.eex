@@ -27,8 +27,8 @@
           <%= number_input f, :time, step: "15", class: "form-control" %>
           <%= error_tag f, :time %>
 
-          <%= label f, "user:" %>
-          <%= select f, :user_id, Enum.map(Redo.Users.list_users(), (&({&1.name, &1.id}))), class: "form-control"%>
+          <%= label f, "Assign task to" %>
+          <%= select f, :user_id, Enum.map(Redo.Users.managed_by(@current_user.id), (&({&1.name, &1.id}))), class: "form-control"%>
           <%= error_tag f, :user_id %>
 
 
@@ -47,7 +47,7 @@
   </div>
 </div>
         <div>
-          <%= submit "Save", class: "prim" %>
+          <span><%= submit "Save", class: "prim" %></span>
         </div>
       <% end %>
     </div>

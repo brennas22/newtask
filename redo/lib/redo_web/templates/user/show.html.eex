@@ -7,6 +7,32 @@
     <%= @user.name %>
   </li>
 
+  <li>
+    <strong>Manager:</strong>
+    <%= if @user.manager_id != nil do %>
+      <td><%= Redo.Users.get_user(@user.manager_id).name %></td>
+    <% else %>
+      <td>None assigned</td>
+    <% end %>
+  </li>
+
+  <li>
+    <strong>Manages:</strong>
+    <%= if Enum.empty?(Redo.Users.managed_by(@user.id)) do %>
+      <p>no one :(</p>
+    <% else %>
+
+     <ol>
+
+     <%= for user <- Redo.Users.managed_by(@user.id) do %>
+      <li>  <%= user.name %>
+     <% end %>
+
+
+   </ol>
+    <% end %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user), class: "prim" %></span>

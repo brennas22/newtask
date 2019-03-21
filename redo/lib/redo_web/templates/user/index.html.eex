@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Manager</th>
 
       <th></th>
     </tr>
@@ -13,6 +14,12 @@
 <%= for user <- @users do %>
     <tr>
       <td><%= user.name %></td>
+      <%= if user.manager_id != nil do %>
+      <td><%= Redo.Users.get_user(user.manager_id).name %></td>
+    <% else %>
+      <td>None assigned</td>
+    <% end %>
+
 
       <td>
         <%= link "Show", to: Routes.user_path(@conn, :show, user),

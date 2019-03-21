@@ -16,7 +16,9 @@
 
 <div class="row">
   <a><%= link "New User", to: Routes.user_path(@conn, :new), class: "prim" %></a>
-  <a><%= link "New Task", to: Routes.task_path(@conn, :new), class: "prim" %></a>
+  <%= if @current_user do %>
+    <a><%= link "New Task", to: Routes.task_path(@conn, :new), class: "prim" %></a>
+  <% end %>
   <a><%= link "View Users", to: Routes.user_path(@conn, :index), class: "sec" %></a>
   <a><%= link "View Tasks", to: Routes.task_path(@conn, :index), class: "sec" %></a>
 </div>

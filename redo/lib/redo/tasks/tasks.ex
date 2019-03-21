@@ -21,6 +21,30 @@ defmodule Redo.Tasks do
     Repo.all(Task)
   end
 
+  def list_users_tasks(user_id) do
+    if user_id do
+      query = from t in Task,
+               where: t.user_id == ^user_id,
+               select: t
+      Repo.all(query)
+    else
+      []
+    end
+  end
+
+  def list_users_underlings_tasks(user_id) do
+    if user_id do
+      get_underlings = Enum.map(Redo.Users.managed_by(user_id),fn user -> user.id end)
+
+      underlings = from task in Task,
+                 where: task.user_id in ^get_underlings,
+                 select: task
+        Repo.all(underlings)
+    else
+      []
+    end
+  end
+
   @doc """
   Gets a single task.
 

@@ -12,4 +12,4 @@
 alias Redo.Repo
 alias Redo.Users.User
 
-Repo.insert!(%User{name: "bren")
+Repo.insert!(%User{name: "bren"})

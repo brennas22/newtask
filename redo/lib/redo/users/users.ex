@@ -21,6 +21,13 @@ defmodule Redo.Users do
     Repo.all(User)
   end
 
+  def managed_by(manager_id) do
+    get_users = from user in User,
+             where: user.manager_id == ^manager_id,
+             select: user
+    Repo.all(get_users)
+  end
+
   @doc """
   Gets a single user.
 

@@ -6,4 +6,5 @@
 
 <div class="row empty"></div>
 
-<a><%= link "Back", to: Routes.task_path(@conn, :index), class: "sec" %></a>
+<span><%= link "Back", to: Routes.task_path(@conn, :index), class: "sec" %></span>
+<span><%= link "Edit time spent", to: Routes.task_path(@conn, :show, @task) %></span>
