@@ -14,7 +14,7 @@ config :redo, RedoWeb.Endpoint,
   root: ".",
   version: Application.spec(:phoenix_distillery, :vsn),
   http: [:inet6, port: {:system, "PORT"}],
-  url: [host: "tasks1.brenwebdev.com", port: 80],
+  url: [host: "tasks2.brenwebdev.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -89,7 +89,7 @@ config :redo, RedoWeb.Endpoint,
   secret_key_base: get_secret.("key_base")
 
 config :redo, Redo.Repo,
-  username: "tasktracker",
-  password: get_secret.("db_pass"),
-  database: "redo_prod",
+  username: "tasks2",
+  password: "tasktracker",
+  database: "redo_prod2",
   pool_size: 15
