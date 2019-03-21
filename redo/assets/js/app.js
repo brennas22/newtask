@@ -17,17 +17,39 @@ import "bootstrap";
 (function () {
   "use strict";
 
-  let start_time = 0;
+  let start_time = null;
+  let stop_time = null;
 
-  document.getElementById("start_button").addEventListener("click", function () { start(start_button); });
+  document.getElementById("start_button").addEventListener("click", function () { start(); });
+  document.getElementById("end_button").addEventListener("click", function () { end(); });
 
-  function start(el) {
-    console.log("hi");
+
+  function start() {
     start_time = new Date();
-    var startbutton = document.getElementById("start_button");
-    startbutton.innerHTML = start_time;
-
+    var starttime = document.getElementById("start_time");
+    starttime.innerHTML = "timer running";
   }
+
+  function end() {
+    stop_time = new Date();
+
+    $.ajax("/ajax/time_blocks", {
+      method: "post",
+      datatype: "json",
+      contentType: "application/json; charset=UTF-8",
+      data: JSON.stringify({
+        time_block: {
+          start: start_time,
+          end: stop_time,
+          task_id: window.task_id,
+        }
+      }),
+      success: (resp) => {location.reload()},
+    });
+    console.log(start_time + ", " + stop_time);
+  }
+
+
 
 })();
 

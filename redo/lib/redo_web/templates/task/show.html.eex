@@ -24,9 +24,17 @@
 <div class="row">
   <div class="col-2">
     <button id="start_button">start time</button>
-    <button>end time</button>
+    <button id="end_button">end time</button>
+    <p id="start_time">click to start timer</p>
 
 
+  </div>
+
+</div>
+<div class="row empty"></div>
+
+<div class="row">
+  <div class="col-6">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -37,12 +45,14 @@
       </thead>
       <tbody>
 
-    <%= for tb<- Redo.Time_blocks.list_timeblocks_for_task(@task.id) do %>
+    <%= for tb<- Redo.Time_blocks.list_time_blocks_for_task(@task.id) do %>
 
         <tr>
-          <td>test</td>
-          <td>test</td>
-          <td>test</td>
+          <td><%= tb.start %></td>
+          <td><%= tb.end %></td>
+          <td>
+            <button>delete</button>
+          </td>
 
 
         </tr>
@@ -52,7 +62,6 @@
   </div>
 
 </div>
-<div class="row empty"></div>
 
 
 <div class="row">
