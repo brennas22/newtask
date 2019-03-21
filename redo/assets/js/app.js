@@ -32,6 +32,7 @@ import "bootstrap";
 
   function end() {
     stop_time = new Date();
+    console.log(window.task_id);
 
     $.ajax("/ajax/time_blocks", {
       method: "post",
@@ -45,6 +46,9 @@ import "bootstrap";
         }
       }),
       success: (resp) => {location.reload()},
+      error: (err) => {
+      console.error(err);
+    }
     });
     console.log(start_time + ", " + stop_time);
   }
