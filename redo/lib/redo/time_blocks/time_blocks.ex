@@ -21,6 +21,13 @@ defmodule Redo.Time_blocks do
     Repo.all(Time_block)
   end
 
+  def list_timeblocks_for_task(task_id) do
+    blocks = from tb in Time_block,
+             where: tb.task_id == ^task_id,
+             select: tb
+    Repo.all(blocks)
+  end
+
   @doc """
   Gets a single time_block.
 
